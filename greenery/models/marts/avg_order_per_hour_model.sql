@@ -3,7 +3,7 @@ with order_counts_in_each_hour AS (
       date_trunc('hour', created_at),
       COUNT(order_id) AS order_count
     FROM
-      public.orders
+      {{ ref('stg_greenery__orders')}}
     GROUP BY
       1
 )

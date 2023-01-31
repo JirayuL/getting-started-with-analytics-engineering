@@ -7,7 +7,7 @@ with users_with_purchase AS (
       WHEN COUNT(order_id) >= 3 THEN 'three_order'
     END AS purchase
   FROM
-    public.orders
+    {{ ref('stg_greenery__orders')}}
   GROUP BY
     user_id
 )
